@@ -21,11 +21,11 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  res.render('maintenance.hbs', {
-    pageTitle: 'Under Maintenance'
-  });
-});
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs', {
+//     pageTitle: 'Under Maintenance'
+//   });
+// });
 
 app.use(express.static(__dirname + '/public')); //middlewear can be used using this function
 
@@ -58,6 +58,13 @@ app.get('/about', (req, res) => {
 app.get('/bad', (req, res) => {
   res.send({
     errorMessage: 'Unable to handle request'
+  });
+});
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects page',
+    welcomeMessage: 'Portfolio Page Here'
   });
 });
 
